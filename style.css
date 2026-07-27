@@ -1,0 +1,715 @@
+/*
+    字體設定
+    ──────────────────────────────────────────────
+    請在專案內建立 fonts 資料夾，並放入：
+
+    fonts/YuanSui.woff2
+    fonts/ModernLove.woff2
+
+    注意：請使用你已合法取得、允許網頁使用的字型檔。
+*/
+
+@font-face {
+    font-family: "Yuan Sui";
+    src:
+        local("芫荽"),
+        local("Yuan Sui"),
+        url("fonts/YuanSui.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Modern Love";
+    src:
+        local("Modern Love"),
+        url("fonts/ModernLove.woff2") format("woff2");
+    font-display: swap;
+}
+
+:root {
+    --background: #fff9fa;
+    --card: #ffffff;
+    --primary: #d9798c;
+    --primary-dark: #9b4358;
+    --light-pink: #f9dfe5;
+    --lighter-pink: #fff1f4;
+    --year-block: #f6dbe2;
+    --alternate-row: rgba(255, 255, 255, 0.58);
+    --text: #493d40;
+    --muted: #8b777c;
+    --border: #e8cbd3;
+    --shadow: 0 12px 30px rgba(162, 92, 108, 0.1);
+}
+
+/*
+    中文預設使用芫荽。
+    英文與數字會在指定元素中使用 Modern Love。
+*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(249, 223, 229, 0.75),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #fffafb 0%,
+            #fff5f7 100%
+        );
+
+    color: var(--text);
+
+    font-family:
+        "Yuan Sui",
+        "芫荽",
+        "Noto Sans TC",
+        "PingFang TC",
+        "Microsoft JhengHei",
+        sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.date-text-input,
+.native-date-input {
+    font-family:
+        "Modern Love",
+        "Yuan Sui",
+        "芫荽",
+        sans-serif;
+}
+
+.app-container {
+    width: min(100%, 760px);
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+}
+
+.app-header {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.small-title {
+    margin: 0 0 8px;
+    color: var(--primary);
+    font-family: "Modern Love", cursive;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.subtitle {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.input-card {
+    width: min(100%, 410px);
+    margin: 0 auto;
+    padding: 24px;
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        minmax(110px, 125px)
+        minmax(0, 1fr)
+        38px;
+
+    align-items: center;
+
+    min-height: 58px;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+}
+
+.form-row label {
+
+    display: flex;
+    align-items: center;
+
+    min-height: 58px;
+
+    color: var(--primary-dark);
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
+}
+
+.main-date-row label {
+    font-family: "Modern Love", cursive;
+    font-size: 1.28rem;
+}
+
+.date-picker-field {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 1fr 38px;
+
+    width: 100%;
+
+    height: 44px;
+
+    min-width: 0;
+}
+
+.form-row .date-text-input {
+    width: 100%;
+    min-width: 0;
+    padding: 9px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px 0 0 10px;
+    outline: none;
+    background: var(--lighter-pink);
+    color: var(--text);
+
+    font-size: 0.88rem;
+}
+
+.form-row .date-text-input:focus {
+    position: relative;
+    z-index: 2;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(217, 121, 140, 0.14);
+}
+
+.calendar-button {
+    width: 38px;
+    height: 100%;
+    min-height: 38px;
+    padding: 0;
+
+    border: 1px solid var(--border);
+    border-left: 0;
+    border-radius: 0 10px 10px 0;
+    background: #ffffff;
+    color: var(--primary);
+
+    cursor: pointer;
+    font-family: "Modern Love", cursive;
+    font-size: 1.1rem;
+}
+
+.calendar-button:hover {
+    background: var(--lighter-pink);
+}
+
+.native-date-input {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.main-date-row .date-picker-field {
+    grid-column: 2 / 4;
+}
+
+.heart-line {
+    width: 100%;
+    margin: 18px 0;
+    overflow: hidden;
+
+    color: var(--primary);
+    font-family: "Modern Love", cursive;
+    font-size: 1rem;
+    letter-spacing: 0.17em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.birthday-section {
+    padding-top: 2px;
+}
+
+.partner-birthday-row:last-child {
+    margin-bottom: 0;
+}
+
+.icon-button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--primary-dark);
+
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 1.35rem;
+    line-height: 1;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+.icon-button:hover {
+    background: var(--lighter-pink);
+    transform: scale(1.05);
+}
+
+.icon-button.remove-button {
+    border-color: var(--border);
+    color: var(--muted);
+    font-size: 1.15rem;
+}
+
+.icon-button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.birthday-note {
+    margin: 4px 0 20px 102px;
+    color: var(--muted);
+    font-size: 0.76rem;
+}
+
+#generateButton {
+    width: 100%;
+    padding: 12px 18px;
+
+    border: 0;
+    border-radius: 12px;
+    background: var(--primary);
+    color: #ffffff;
+
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+#generateButton:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+#generateButton:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    min-height: 1.4em;
+    margin: 12px 0 0;
+    color: #b9344f;
+    font-size: 0.84rem;
+    text-align: center;
+}
+
+.summary-section {
+    margin: 34px auto 22px;
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--card);
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.hidden {
+    display: none;
+}
+
+.summary-label {
+    margin: 0 0 9px;
+    color: var(--primary);
+
+    font-family: "Modern Love", cursive;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.selected-date-text {
+    margin: 0;
+    color: var(--primary-dark);
+
+    font-family:
+        "Modern Love",
+        "Yuan Sui",
+        sans-serif;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.end-date-text {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.result-section {
+    display: grid;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+/*
+    每年一個接近正方形的色塊。
+    當內容較多時高度會自動向下延伸，
+    避免文字被裁切。
+*/
+.year-group {
+    width: 100%;
+    min-height: 420px;
+    padding: 22px;
+
+    border: 1px solid rgba(155, 67, 88, 0.12);
+    border-radius: 10px;
+    background: var(--year-block);
+    box-shadow: var(--shadow);
+}
+
+.year-title {
+    margin: 0 0 15px;
+    color: var(--primary-dark);
+
+    font-family: "Modern Love", cursive;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 0.08em;
+}
+
+.event-list {
+    overflow: hidden;
+    border: 1px solid rgba(155, 67, 88, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.28);
+}
+
+/*
+    每年內的雙數行加入底色。
+*/
+.event-item {
+    display: grid;
+    grid-template-columns: minmax(170px, auto) 1fr;
+    align-items: center;
+    gap: 14px;
+
+    min-height: 52px;
+    padding: 11px 14px;
+}
+
+.event-item:nth-child(even) {
+    background: var(--alternate-row);
+}
+
+.event-item.special-event {
+    box-shadow: inset 4px 0 0 var(--primary);
+}
+
+.event-date {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.date-number {
+    font-family:
+        "Modern Love",
+        "Yuan Sui",
+        sans-serif;
+}
+
+.event-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.event-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 4px 9px;
+
+    border-radius: 999px;
+    background: rgba(255, 241, 244, 0.95);
+    color: var(--primary-dark);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.event-tag.day-one {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.event-tag.major {
+    background: #efbeca;
+    color: #783345;
+}
+
+.event-tag.birthday {
+    background: #ffffff;
+    color: #9b4358;
+    box-shadow: inset 0 0 0 1px #dfa5b3;
+}
+
+.latin-text {
+    font-family:
+        "Modern Love",
+        "Yuan Sui",
+        sans-serif;
+}
+
+.empty-result {
+    padding: 30px 20px;
+    color: var(--muted);
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .app-container {
+        padding: 35px 14px 60px;
+    }
+
+    .input-card {
+        padding: 20px 16px;
+    }
+
+    .form-row {
+        grid-template-columns: 82px 1fr 36px;
+        gap: 8px;
+    }
+
+    .birthday-note {
+        margin-left: 90px;
+    }
+
+    .year-group {
+        min-height: 0;
+        padding: 16px 12px;
+    }
+
+    .event-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .event-date {
+        white-space: normal;
+    }
+}
+
+
+.date-text-input.invalid-date {
+    border-color: #b9344f;
+    background: #fff4f6;
+}
+
+
+/* 右上角語言切換 */
+.language-switcher {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    color: var(--muted);
+    font-family:
+        "Modern Love",
+        "Yuan Sui",
+        sans-serif;
+    font-size: 0.76rem;
+}
+
+.language-button {
+    padding: 2px 3px;
+
+    border: 0;
+    border-bottom: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.language-button:hover {
+    color: var(--primary-dark);
+}
+
+.language-button.active {
+    border-bottom-color: var(--primary);
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+body[data-language="en"] {
+    font-family:
+        "Modern Love",
+        "Yuan Sui",
+        "Noto Sans",
+        sans-serif;
+}
+
+body[data-language="en"] .app-header h1,
+body[data-language="en"] .subtitle,
+body[data-language="en"] .form-row label,
+body[data-language="en"] .birthday-note,
+body[data-language="en"] #generateButton,
+body[data-language="en"] .error-message,
+body[data-language="en"] .end-date-text,
+body[data-language="en"] .event-tag {
+    font-family:
+        "Modern Love",
+        "Yuan Sui",
+        sans-serif;
+}
+
+@media (max-width: 600px) {
+    .language-switcher {
+        top: 12px;
+        right: 14px;
+    }
+
+    .app-container {
+        padding-top: 55px;
+    }
+}
+
+
+/* 英文版可讀性 */
+body[data-language="en"] {
+    font-size: 16px;
+}
+
+body[data-language="en"] .app-header h1 {
+    font-size: clamp(1.75rem, 7vw, 2.35rem);
+    line-height: 1.18;
+    letter-spacing: 0.015em;
+}
+
+body[data-language="en"] .subtitle {
+    font-size: 0.98rem;
+    line-height: 1.55;
+}
+
+body[data-language="en"] .form-row label {
+    font-size: 0.98rem;
+    line-height: 1.35;
+}
+
+body[data-language="en"] .birthday-note,
+body[data-language="en"] .helper-text {
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+body[data-language="en"] .date-text-input,
+body[data-language="en"] #generateButton {
+    font-size: 1rem;
+}
+
+body[data-language="en"] .year-title {
+    font-size: 1.22rem;
+}
+
+body[data-language="en"] .event-date,
+body[data-language="en"] .event-name,
+body[data-language="en"] .event-tag {
+    font-size: 0.94rem;
+    line-height: 1.45;
+}
+
+/*
+真正保留瀏覽器原生日曆：
+透明的 date input 覆蓋在日曆按鈕上，
+使用者點擊右側按鈕區時，實際上會直接打開原生日曆。
+*/
+.date-picker-field {
+    position: relative;
+}
+
+.native-date-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+
+    width: 38px;
+    height: 100%;
+    min-height: 38px;
+
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.calendar-button {
+    position: relative;
+    z-index: 4;
+    pointer-events: none;
+}
+
+@media (max-width: 420px) {
+    body[data-language="en"] .form-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    body[data-language="en"] .form-row > label {
+        grid-column: 1;
+    }
+
+    body[data-language="en"] .form-row .date-picker-field {
+        grid-column: 1;
+    }
+}

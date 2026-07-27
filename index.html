@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>情侶紀念日記錄</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="language-switcher" aria-label="Language">
+        <button
+            type="button"
+            class="language-button active"
+            data-language="zh"
+            aria-pressed="true"
+        >
+            中文
+        </button>
+
+        <span aria-hidden="true">|</span>
+
+        <button
+            type="button"
+            class="language-button"
+            data-language="en"
+            aria-pressed="false"
+        >
+            English
+        </button>
+    </nav>
+
+    <main class="app-container">
+
+        <header class="app-header">
+            <p class="small-title">OUR DAYS</p>
+            <h1 data-i18n="appTitle">情侶紀念日記錄</h1>
+            <p class="subtitle" data-i18n="subtitle">
+                記下相遇的第一天，以及彼此的重要日期
+            </p>
+        </header>
+
+        <section class="input-card">
+
+            <div class="form-row main-date-row">
+                <label for="startDate">Day 1</label>
+
+                <div class="date-picker-field">
+                    <input
+                        type="text"
+                        id="startDate"
+                        class="date-text-input"
+                        inputmode="numeric"
+                        placeholder="YYYY/MM/DD"
+                        autocomplete="off"
+                        aria-label="輸入或選擇 Day 1 日期"
+                    >
+
+                    <button
+                        type="button"
+                        class="calendar-button"
+                        data-date-target="startDate"
+                        aria-label="開啟 Day 1 日曆"
+                        title="開啟日曆"
+                    >
+                        ♡
+                    </button>
+
+                    <input
+                        type="date"
+                        class="native-date-input"
+                        data-text-target="startDate"
+                        tabindex="-1"
+                        aria-hidden="true"
+                    >
+                </div>
+            </div>
+
+            <div class="heart-line" aria-hidden="true">
+                ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡
+            </div>
+
+            <div class="birthday-section">
+
+                <div class="form-row">
+                    <label for="yourBirthday" data-i18n="yourBirthday">你的生日</label>
+
+                    <div class="date-picker-field">
+                        <input
+                            type="text"
+                            id="yourBirthday"
+                            class="date-text-input"
+                            inputmode="numeric"
+                            placeholder="YYYY/MM/DD"
+                            autocomplete="bday"
+                            aria-label="輸入或選擇你的生日"
+                        >
+
+                        <button
+                            type="button"
+                            class="calendar-button"
+                            data-date-target="yourBirthday"
+                            aria-label="開啟你的生日月曆"
+                            title="開啟日曆"
+                        >
+                            ♡
+                        </button>
+
+                        <input
+                            type="date"
+                            class="native-date-input"
+                            data-text-target="yourBirthday"
+                            tabindex="-1"
+                            aria-hidden="true"
+                        >
+                    </div>
+                </div>
+<div id="partnerBirthdayContainer">
+
+                    <div class="form-row partner-birthday-row">
+                        <label
+                            for="partnerBirthday1"
+                            data-i18n="partnerBirthday"
+                        >
+                            對方生日
+                        </label>
+
+                        <div class="date-picker-field">
+                            <input
+                                type="text"
+                                id="partnerBirthday1"
+                                class="date-text-input partner-birthday-input"
+                                data-person-number="1"
+                                inputmode="numeric"
+                                placeholder="YYYY/MM/DD"
+                                autocomplete="off"
+                                aria-label="輸入或選擇第一位對方的生日"
+                            >
+
+                            <button
+                                type="button"
+                                class="calendar-button"
+                                data-date-target="partnerBirthday1"
+                                aria-label="開啟第一位對方的生日月曆"
+                                title="開啟日曆"
+                            >
+                                ♡
+                            </button>
+
+                            <input
+                                type="date"
+                                class="native-date-input"
+                                data-text-target="partnerBirthday1"
+                                tabindex="-1"
+                                aria-hidden="true"
+                            >
+                        </div>
+
+                        <button
+                            type="button"
+                            id="addPartnerButton"
+                            class="icon-button"
+                            aria-label="增加另一位對方的生日"
+                            title="增加對方生日"
+                        >
+                            ＋
+                        </button>
+                    </div>
+
+                </div>
+                
+                <div class="form-row">
+                    <label
+                        for="marriageDate"
+                        data-i18n="marriageDate"
+                    >
+                        結婚紀念日（選填）
+                    </label>
+
+                    <div class="date-picker-field">
+                        <input
+                            type="text"
+                            id="marriageDate"
+                            class="date-text-input"
+                            inputmode="numeric"
+                            placeholder="YYYY/MM/DD"
+                            autocomplete="off"
+                            aria-label="輸入或選擇結婚日期"
+                        >
+
+                        <button
+                            type="button"
+                            class="calendar-button"
+                            data-date-target="marriageDate"
+                            aria-label="開啟結婚日期月曆"
+                            title="開啟日曆"
+                        >
+                            ♡
+                        </button>
+
+                        <input
+                            type="date"
+                            class="native-date-input"
+                            data-text-target="marriageDate"
+                            tabindex="-1"
+                            aria-label="選擇結婚日期"
+                        >
+                    </div>
+                </div>
+
+                
+
+                <p class="birthday-note" data-i18n="birthdayNote">
+                    最多可輸入四位「對方生日」
+                </p>
+
+            </div>
+
+            <button
+                id="generateButton"
+                type="button"
+                data-i18n="generateButton"
+            >
+                生成紀念日
+            </button>
+
+            <p id="errorMessage" class="error-message"></p>
+
+        </section>
+
+        <section
+            id="summarySection"
+            class="summary-section hidden"
+        >
+            <p class="summary-label">OUR STORY BEGINS</p>
+
+            <p id="selectedDateText" class="selected-date-text"></p>
+
+            <p id="endDateText" class="end-date-text"></p>
+        </section>
+
+        <section
+            id="resultSection"
+            class="result-section"
+            aria-live="polite"
+        ></section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

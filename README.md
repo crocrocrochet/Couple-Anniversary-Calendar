@@ -1,2 +1,60 @@
-# Couple-Anniversary-Calendar
-Couple Anniversary Calendar
+# 情侶紀念日記錄 App
+
+## 專案結構
+
+```text
+couple-days-app-updated
+├── index.html
+├── style.css
+├── script.js
+└── fonts
+    ├── YuanSui.woff2
+    └── ModernLove.woff2
+```
+
+請自行建立 `fonts` 資料夾，並放入你已合法取得、可供網頁使用的字型檔。
+
+若字型檔名稱不同，請同步修改 `style.css` 中的 `url(...)` 路徑。
+
+## 執行
+
+使用 VS Code 的 Live Server 開啟 `index.html`。
+
+
+## 日期輸入
+
+所有日期欄位均支援：
+
+- 直接鍵盤輸入：`2026/07/28`
+- 直接鍵盤輸入：`2026-07-28`
+- 點擊日期欄右側的心形日曆按鈕選擇日期
+
+離開輸入欄後，正確日期會自動整理成 `YYYY/MM/DD`。
+
+
+## 中英文切換
+
+網頁右上角提供 `[中文] | [English]` 按鈕。
+
+切換語言後，以下內容會同步更新：
+
+- 頁面標題與說明
+- 生日欄位名稱
+- 生成按鈕
+- 錯誤提示
+- 星期名稱
+- 節日名稱
+- 生日標籤
+- 百日、五百日、千日及萬日紀念日名稱
+- 已生成的結果
+
+
+## 本次更新
+
+- 英文版加大標題、說明、欄位與結果文字，改善手機閱讀。
+- 日期欄可直接輸入 `YYYY/MM/DD` 或 `YYYY-MM-DD`。
+- 右側心形區域保留瀏覽器原生日曆選擇功能。
+- 新增「結婚紀念日（選填）」。
+- 填寫結婚日期後，時間線會逐年顯示結婚週年：
+  - 中文：結婚 1 週年紀念
+  - English: 1st wedding anniversary
